@@ -7,3 +7,10 @@ edition = "2021"
 
 [dependencies]
 bracket-lib = "~0.8.7"
+
+# Security overrides for transitive dependencies with known vulnerabilities
+# Adding these as direct dependencies forces Cargo to use secure versions
+# crossbeam-utils < 0.8.7 has memory safety issues - upgrading to 0.8.21
+crossbeam-utils = "0.8.21"
+# mio <= 0.8.10 has security vulnerabilities - upgrading to 0.8.11
+mio = "0.8.11"
